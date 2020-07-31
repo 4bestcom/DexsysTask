@@ -4,28 +4,16 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class Data {
-    private ArrayList<Integer> list1 = new ArrayList<Integer>();
-    private ArrayList<Integer> list2 = new ArrayList<Integer>();
-    private ArrayList<Integer> list3 = new ArrayList<Integer>();
+    private ArrayList<Integer> list1 = new ArrayList<>();
+    private ArrayList<Integer> list2 = new ArrayList<>();
+    private ArrayList<Integer> list3 = new ArrayList<>();
     private boolean isAnyMore;
 
 
     public boolean isAnyMore() {
         return isAnyMore;
     }
-
-    public ArrayList<Integer> getList1() {
-        return list1;
-    }
-
-    public ArrayList<Integer> getList2() {
-        return list2;
-    }
-
-    public ArrayList<Integer> getList3() {
-        return list3;
-    }
-
+    
     public void initArray(int[] array) {
         for (int firstNumb : array) {
             if (firstNumb % 3 == 0) {
