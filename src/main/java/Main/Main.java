@@ -22,11 +22,11 @@ public class Main {
         } else if (args[0].equals("print")) {
             data.print();
         } else if (args[0].equals("anyMore")) {
-            data.isAnyMore();
+            System.out.println(data.isAnyMore());
         } else if (args[0].equals("clear")) {
             data.clearType(args[1]);
         } else if (args[0].equals("merge")) {
-            for (int a: data.merge()) {
+            for (int a : data.merge()) {
                 System.out.print(a + " ");
             }
         } else if (args[0].equals("help")) {

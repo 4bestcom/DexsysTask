@@ -36,8 +36,7 @@ public class Data {
             }
             if (firstNumb % 21 == 0) {
                 list3.add(firstNumb);
-            }
-            else if (firstNumb % 3 != 0 && firstNumb % 7 != 0){
+            } else if (firstNumb % 3 != 0 && firstNumb % 7 != 0) {
                 isAnyMore = true;
             }
         }
@@ -89,15 +88,15 @@ public class Data {
         }
     }
 
-    public void clearType(String value){
-        switch (value){
+    public void clearType(String value) {
+        switch (value) {
             case "X":
                 list1.clear();
                 break;
             case "S":
                 list2.clear();
                 break;
-            case  "M":
+            case "M":
                 list3.clear();
                 break;
             default:
@@ -106,7 +105,7 @@ public class Data {
         }
     }
 
-    public ArrayList<Integer> merge(){
+    public ArrayList<Integer> merge() {
         ArrayList<Integer> list = new ArrayList<>(list1);
         list.addAll(list2);
         list.addAll(list3);
