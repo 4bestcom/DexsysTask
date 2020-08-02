@@ -13,7 +13,7 @@ public class Data {
     public boolean isAnyMore() {
         return isAnyMore;
     }
-    
+
     public void initArray(int[] array) {
         for (int firstNumb : array) {
             if (firstNumb % 3 == 0) {
@@ -40,34 +40,58 @@ public class Data {
     }
 
     public void print() {
-        for (int printNumbList1 : list1) {
-            System.out.print(printNumbList1 + " ");
+        if (list1.isEmpty()) {
+            System.out.println("Список X пуст");
+        } else {
+            for (int printNumbList1 : list1) {
+                System.out.print(printNumbList1 + " ");
+            }
+            System.out.println();
         }
-        System.out.println();
-        for (int printNumbList2 : list2) {
-            System.out.print(printNumbList2 + " ");
+        if (list2.isEmpty()) {
+            System.out.println("Список S пуст");
+        } else {
+            for (int printNumbList2 : list2) {
+                System.out.print(printNumbList2 + " ");
+            }
+            System.out.println();
         }
-        System.out.println();
-        for (int printNumbList3 : list3) {
-            System.out.print(printNumbList3 + " ");
+        if (list2.isEmpty()) {
+            System.out.println("Список M пуст");
+        } else {
+            for (int printNumbList3 : list3) {
+                System.out.print(printNumbList3 + " ");
+            }
         }
     }
 
     public void printType(String value) {
         switch (value) {
             case "X":
-                for (int printNumbList1 : list1) {
-                    System.out.print(printNumbList1 + " ");
+                if (list1.isEmpty()) {
+                    System.out.print("Список X пуст");
+                } else {
+                    for (int printNumbList1 : list1) {
+                        System.out.print(printNumbList1 + " ");
+                    }
                 }
                 break;
             case "S":
-                for (int printNumbList2 : list2) {
-                    System.out.print(printNumbList2 + " ");
+                if (list2.isEmpty()) {
+                    System.out.print("Список S пуст");
+                } else {
+                    for (int printNumbList2 : list2) {
+                        System.out.print(printNumbList2 + " ");
+                    }
                 }
                 break;
             case "M":
-                for (int printNumbList3 : list3) {
-                    System.out.print(printNumbList3 + " ");
+                if (list2.isEmpty()) {
+                    System.out.print("Список M пуст");
+                } else {
+                    for (int printNumbList3 : list3) {
+                        System.out.print(printNumbList3 + " ");
+                    }
                 }
                 break;
             default:
