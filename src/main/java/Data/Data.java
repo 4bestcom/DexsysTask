@@ -1,12 +1,16 @@
 package Data;
 
-import java.util.ArrayList;
-import java.util.Collections;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class Data {
-    private ArrayList<Integer> list1 = new ArrayList<>();
-    private ArrayList<Integer> list2 = new ArrayList<>();
-    private ArrayList<Integer> list3 = new ArrayList<>();
+    private List<Integer> list1;
+    private List<Integer> list2;
+    private List<Integer> list3;
     private boolean isAnyMore;
 
 
@@ -15,53 +19,34 @@ public class Data {
     }
 
     public void initArray(int[] array) {
-        for (int firstNumb : array) {
-            if (firstNumb % 3 == 0) {
-                list1.add(firstNumb);
-            }
-            if (firstNumb % 7 == 0) {
-                list2.add(firstNumb);
-            }
-            if (firstNumb % 21 == 0) {
-                list3.add(firstNumb);
-            } else if (firstNumb % 3 != 0 && firstNumb % 7 != 0) {
-                isAnyMore = true;
-            }
-        }
-        if (list1.size() > 1) {
-            Collections.sort(list1);
-        }
-        if (list2.size() > 1) {
-            Collections.sort(list2);
-        }
-        if (list3.size() > 1) {
-            Collections.sort(list3);
-        }
+        IntStream
+                .range(0, array.length)
+                .forEach(i -> {
+                    if (array[i] % 3 != 0 && array[i] % 7 != 0 && array[i] % 21 != 0) isAnyMore = true;
+                });
+        list1 = Arrays.stream(array).filter(x -> x % 3 == 0).distinct().sorted().boxed().collect(Collectors.toList());
+        list2 = Arrays.stream(array).filter(x -> x % 7 == 0).distinct().sorted().boxed().collect(Collectors.toList());
+        list3 = Arrays.stream(array).filter(x -> x % 21 == 0).distinct().sorted().boxed().collect(Collectors.toList());
+
     }
 
     public void print() {
         if (list1.isEmpty()) {
             System.out.println("Список X пуст");
         } else {
-            for (int printNumbList1 : list1) {
-                System.out.print(printNumbList1 + " ");
-            }
+            list1.forEach(x -> System.out.print(x + " "));
             System.out.println();
         }
         if (list2.isEmpty()) {
             System.out.println("Список S пуст");
         } else {
-            for (int printNumbList2 : list2) {
-                System.out.print(printNumbList2 + " ");
-            }
+            list2.forEach(x -> System.out.print(x + " "));
             System.out.println();
         }
-        if (list2.isEmpty()) {
+        if (list3.isEmpty()) {
             System.out.println("Список M пуст");
         } else {
-            for (int printNumbList3 : list3) {
-                System.out.print(printNumbList3 + " ");
-            }
+            list3.forEach(x -> System.out.print(x + " "));
         }
     }
 
@@ -69,29 +54,23 @@ public class Data {
         switch (value) {
             case "X":
                 if (list1.isEmpty()) {
-                    System.out.print("Список X пуст");
+                    System.out.println("Список X пуст");
                 } else {
-                    for (int printNumbList1 : list1) {
-                        System.out.print(printNumbList1 + " ");
-                    }
+                    list1.forEach(x -> System.out.print(x + " "));
                 }
                 break;
             case "S":
                 if (list2.isEmpty()) {
-                    System.out.print("Список S пуст");
+                    System.out.println("Список S пуст");
                 } else {
-                    for (int printNumbList2 : list2) {
-                        System.out.print(printNumbList2 + " ");
-                    }
+                    list2.forEach(x -> System.out.print(x + " "));
                 }
                 break;
             case "M":
-                if (list2.isEmpty()) {
-                    System.out.print("Список M пуст");
+                if (list3.isEmpty()) {
+                    System.out.println("Список M пуст");
                 } else {
-                    for (int printNumbList3 : list3) {
-                        System.out.print(printNumbList3 + " ");
-                    }
+                    list3.forEach(x -> System.out.print(x + " "));
                 }
                 break;
             default:
@@ -117,14 +96,12 @@ public class Data {
         }
     }
 
-    public ArrayList<Integer> merge() {
-        ArrayList<Integer> list = new ArrayList<>(list1);
-        list.addAll(list2);
-        list.addAll(list3);
+    public List<Integer> merge() {
+        List<Integer> list = Stream.concat(list1.stream(), Stream.concat(list2.stream(), list3.stream()))
+                .sorted().collect(Collectors.toList());
         list1.clear();
         list2.clear();
         list3.clear();
-        Collections.sort(list);
         return list;
     }
 }
