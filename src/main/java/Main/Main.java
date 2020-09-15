@@ -37,6 +37,7 @@ public class Main {
             System.out.println("help - вывод справки по командам");
         }
 //срочное исправление бага в ветке hotfix
+        //срочное исправление бага в ветке hotfix метода add
     }
 }
 
