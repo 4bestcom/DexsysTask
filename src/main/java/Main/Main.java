@@ -6,6 +6,8 @@ import Data.Data;
 public class Main {
 
 
+
+
     public static void main(String[] args) {
         Data data = new Data();
         if (args[0].equals("init") && args[1].equals("array")) {
