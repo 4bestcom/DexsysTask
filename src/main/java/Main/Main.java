@@ -35,7 +35,6 @@ public class Main {
             System.out.println("merge - слить все списки в один вывести на экран и очистить все списки");
             System.out.println("help - вывод справки по командам");
         }
-
     }
 }
 
