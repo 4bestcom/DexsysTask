@@ -1,9 +1,10 @@
 package Main;
 
-
 import Data.Data;
 
+
 public class Main {
+
 
     public static void main(String[] args) {
         Data data = new Data();
@@ -35,6 +36,8 @@ public class Main {
             System.out.println("merge - слить все списки в один вывести на экран и очистить все списки");
             System.out.println("help - вывод справки по командам");
         }
+//срочное исправление бага в ветке hotfix
+        //срочное исправление бага в ветке hotfix метода add
     }
 }
 
